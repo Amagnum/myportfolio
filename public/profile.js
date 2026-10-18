@@ -164,7 +164,7 @@
           <div class="github-activity__grid" aria-hidden="true"></div>
           <div class="github-activity__footer">
             <span>18 public repos</span>
-            <span>GitHub / NoobSourabh</span>
+            <span>GitHub / adarsh-baghel</span>
           </div>
         `;
         const grid = component.querySelector('.github-activity__grid');

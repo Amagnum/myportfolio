@@ -3,6 +3,9 @@
 import { useRef, useLayoutEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import { preloadSiteAssets } from '../../lib/preload-assets';
+import { pages } from '../../content/site';
+
+const hero = pages.home.hero;
 
 const MOBILE_MAX_WIDTH = 809.98;
 
@@ -192,7 +195,7 @@ export default function HeroSection() {
               <video
                 ref={videoRef}
                 id="hero-boomerang-video"
-                src="/images/hero-boomerang.mp4"
+                src={hero.video}
                 autoPlay
                 muted
                 playsInline
@@ -203,30 +206,30 @@ export default function HeroSection() {
           <div className="framer-1ws1c3f" data-framer-name="Content Wrapper">
             <div className="framer-mklr9n" data-framer-appear-id="mklr9n" data-framer-name="Text Wrapper" style={{ opacity: "1", transform: "none" }}>
               <div className="framer-1ns3x67" data-framer-component-type="RichTextContainer" style={{ transform: "none" }}>
-                <p className="framer-text framer-styles-preset-myvcqd" data-styles-preset="vnfdw_xAY" dir="auto" style={{ "--framer-text-alignment": "left" }}>I'M SOURABH</p>
+                <p className="framer-text framer-styles-preset-myvcqd" data-styles-preset="vnfdw_xAY" dir="auto" style={{ "--framer-text-alignment": "left" }}>{hero.eyebrow}</p>
               </div>
               <div className="framer-14dkztq" data-framer-component-type="RichTextContainer" style={{ transform: "none" }}>
-                <h1 className="framer-text framer-styles-preset-1iszveu" data-styles-preset="BxrGaJblF" dir="auto" style={{ "--framer-text-alignment": "left" }}>Building polished interfaces that feel effortless.</h1>
+                <h1 className="framer-text framer-styles-preset-1iszveu" data-styles-preset="BxrGaJblF" dir="auto" style={{ "--framer-text-alignment": "left" }}>{hero.title}</h1>
               </div>
               <div className="framer-10y77co" data-framer-component-type="RichTextContainer" style={{ transform: "none" }}>
-                <p className="framer-text framer-styles-preset-myvcqd" data-styles-preset="vnfdw_xAY" dir="auto" style={{ "--framer-text-alignment": "left" }}>I build responsive, performant frontend experiences with thoughtful interactions and clean, maintainable code.</p>
+                <p className="framer-text framer-styles-preset-myvcqd" data-styles-preset="vnfdw_xAY" dir="auto" style={{ "--framer-text-alignment": "left" }}>{hero.description}</p>
               </div>
             </div>
             <div className="framer-1luurh7" data-framer-appear-id="1luurh7" data-framer-name="Actions" style={{ opacity: "1", transform: "none" }}>
               <div className="ssr-variant">
                 <div className="framer-px950e-container">
-                  <a className="framer-IYN0L framer-ZROfX framer-l5zbuo framer-v-l5zbuo framer-11131nd" data-framer-name="Primary" href="https://github.com/NoobSourabh" style={{ "--border-bottom-width": "0px", "--border-color": "rgba(0, 0, 0, 0)", "--border-left-width": "0px", "--border-right-width": "0px", "--border-style": "solid", "--border-top-width": "0px", backgroundColor: "var(--token-b57a4573-ef01-446f-89ba-6fc5461bb54f, rgb(189, 238, 99))", height: "100%", borderBottomLeftRadius: "100px", borderBottomRightRadius: "100px", borderTopLeftRadius: "100px", borderTopRightRadius: "100px" }}>
+                  <a className="framer-IYN0L framer-ZROfX framer-l5zbuo framer-v-l5zbuo framer-11131nd" data-framer-name="Primary" href={hero.primaryCta.href} target="_blank" rel="noopener noreferrer" style={{ "--border-bottom-width": "0px", "--border-color": "rgba(0, 0, 0, 0)", "--border-left-width": "0px", "--border-right-width": "0px", "--border-style": "solid", "--border-top-width": "0px", backgroundColor: "var(--token-b57a4573-ef01-446f-89ba-6fc5461bb54f, rgb(189, 238, 99))", height: "100%", borderBottomLeftRadius: "100px", borderBottomRightRadius: "100px", borderTopLeftRadius: "100px", borderTopRightRadius: "100px" }}>
                     <div className="framer-mb4s8" data-framer-component-type="RichTextContainer" style={{ "--extracted-r6o4lv": "var(--token-fcdd5164-bf55-48ca-a517-fc569e2d93cc, rgb(17, 17, 17))", "--framer-link-text-color": "rgb(0, 153, 255)", "--framer-link-text-decoration": "underline", transform: "none" }}>
-                      <p className="framer-text framer-styles-preset-1t46aaw" data-styles-preset="YNEdw0Tqm" dir="auto" style={{ "--framer-text-alignment": "center", "--framer-text-color": "var(--extracted-r6o4lv, var(--token-fcdd5164-bf55-48ca-a517-fc569e2d93cc, rgb(17, 17, 17)))" }}>View GitHub</p>
+                      <p className="framer-text framer-styles-preset-1t46aaw" data-styles-preset="YNEdw0Tqm" dir="auto" style={{ "--framer-text-alignment": "center", "--framer-text-color": "var(--extracted-r6o4lv, var(--token-fcdd5164-bf55-48ca-a517-fc569e2d93cc, rgb(17, 17, 17)))" }}>{hero.primaryCta.label}</p>
                     </div>
                   </a>
                 </div>
               </div>
               <div className="ssr-variant">
                 <div className="framer-s0afkv-container">
-                  <a className="framer-IYN0L framer-ZROfX framer-l5zbuo framer-v-f69p1b framer-11131nd" data-framer-name="Secondary" data-border="true" href="mailto:dev.sourabhc@gmail.com" style={{ "--border-bottom-width": "1px", "--border-color": "var(--token-8ac823af-7d80-4133-952a-528a09c81339, rgb(237, 237, 237))", "--border-left-width": "1px", "--border-right-width": "1px", "--border-style": "solid", "--border-top-width": "1px", backgroundColor: "var(--token-880999e0-fa5d-4c65-a75a-ae1653ed7391, rgb(255, 255, 255))", height: "100%", borderBottomLeftRadius: "100px", borderBottomRightRadius: "100px", borderTopLeftRadius: "100px", borderTopRightRadius: "100px" }}>
+                  <a className="framer-IYN0L framer-ZROfX framer-l5zbuo framer-v-f69p1b framer-11131nd" data-framer-name="Secondary" data-border="true" href={hero.secondaryCta.href} style={{ "--border-bottom-width": "1px", "--border-color": "var(--token-8ac823af-7d80-4133-952a-528a09c81339, rgb(237, 237, 237))", "--border-left-width": "1px", "--border-right-width": "1px", "--border-style": "solid", "--border-top-width": "1px", backgroundColor: "var(--token-880999e0-fa5d-4c65-a75a-ae1653ed7391, rgb(255, 255, 255))", height: "100%", borderBottomLeftRadius: "100px", borderBottomRightRadius: "100px", borderTopLeftRadius: "100px", borderTopRightRadius: "100px" }}>
                     <div className="framer-mb4s8" data-framer-component-type="RichTextContainer" style={{ "--extracted-r6o4lv": "var(--token-fcdd5164-bf55-48ca-a517-fc569e2d93cc, rgb(17, 17, 17))", "--framer-link-text-color": "rgb(0, 153, 255)", "--framer-link-text-decoration": "underline", transform: "none" }}>
-                      <p className="framer-text framer-styles-preset-1t46aaw" data-styles-preset="YNEdw0Tqm" dir="auto" style={{ "--framer-text-alignment": "center", "--framer-text-color": "var(--extracted-r6o4lv, var(--token-fcdd5164-bf55-48ca-a517-fc569e2d93cc, rgb(17, 17, 17)))" }}>Email me</p>
+                      <p className="framer-text framer-styles-preset-1t46aaw" data-styles-preset="YNEdw0Tqm" dir="auto" style={{ "--framer-text-alignment": "center", "--framer-text-color": "var(--extracted-r6o4lv, var(--token-fcdd5164-bf55-48ca-a517-fc569e2d93cc, rgb(17, 17, 17)))" }}>{hero.secondaryCta.label}</p>
                     </div>
                   </a>
                 </div>
@@ -275,8 +278,8 @@ export default function HeroSection() {
                       decoding="async"
                       width="682"
                       height="682"
-                      src="/images/adarsh-baghel.jpg"
-                      alt="Adarsh Baghel"
+                      src={hero.testimonial.avatar}
+                      alt={hero.testimonial.name}
                       style={{
                         display: "block",
                         width: "100%",
@@ -309,7 +312,7 @@ export default function HeroSection() {
                         "--framer-text-color": "var(--extracted-r6o4lv, var(--token-fcdd5164-bf55-48ca-a517-fc569e2d93cc, rgb(17, 17, 17)))",
                       }}
                     >
-                      Adarsh Baghel
+                      {hero.testimonial.name}
                     </p>
                   </div>
                   <div
@@ -331,7 +334,7 @@ export default function HeroSection() {
                         "--framer-text-color": "var(--extracted-r6o4lv, var(--token-e4c01179-4e7b-45a8-915a-d5bcd5f31dc2, rgb(51, 51, 51)))",
                       }}
                     >
-                      Founder at RSENL AI LABS
+                      {hero.testimonial.role}
                     </p>
                   </div>
                 </div>
@@ -368,7 +371,7 @@ export default function HeroSection() {
                     "--framer-text-color": "var(--extracted-r6o4lv, var(--token-fcdd5164-bf55-48ca-a517-fc569e2d93cc, rgb(17, 17, 17)))",
                   }}
                 >
-                  “Sourabh has a rare ability to turn abstract ideas into a website that feels clear, confident, and genuinely premium. The frontend build was fast, polished, and incredibly easy for our team to maintain.”
+                  {hero.testimonial.quoted ? `“${hero.testimonial.quote}”` : hero.testimonial.quote}
                 </p>
               </div>
             </div>
@@ -381,8 +384,8 @@ export default function HeroSection() {
                     decoding="async"
                     width="1232"
                     height="928"
-                    src="/images/PORTRAIT.png"
-                    alt="Sourabh Chouhan, Frontend Developer"
+                    src={hero.image.src}
+                    alt={hero.image.alt}
                     style={{
                       display: "block",
                       width: "100%",

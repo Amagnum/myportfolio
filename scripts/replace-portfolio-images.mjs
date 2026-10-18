@@ -72,8 +72,8 @@ transformFile('components/work/AtlasFinanceContent.jsx', cardReplacements);
 
 transformFile('components/about/AboutContent.jsx', [
   [
-    `<img decoding="async" width="1232" height="928" src="/images/frog.png" alt="Sourabh Chouhan, Frontend Developer" ${imgStyle} />`,
-    `<OptimizedImage src="/images/frog.webp" alt="Sourabh Chouhan, Frontend Developer" sizes="100vw" priority />`,
+    `<img decoding="async" width="1232" height="928" src="/images/frog.png" alt="Adarsh Baghel, Software Engineer & AI Builder" ${imgStyle} />`,
+    `<OptimizedImage src="/images/frog.webp" alt="Adarsh Baghel, Software Engineer & AI Builder" sizes="100vw" priority />`,
   ],
   aboutGalleryReplacement('pinterest.png', 'pinterest.webp', 'Pinterest project preview'),
   aboutGalleryReplacement('pinterst.png', 'pinterst.webp', 'Pinterest project detail'),

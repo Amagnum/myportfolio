@@ -1,0 +1,138 @@
+/* Featured Projects cards on the home page: fill the text column with
+   larger type, highlights and a stack row instead of empty space. */
+
+.work-card__highlights {
+  display: grid;
+  gap: 10px;
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.work-card__highlights li {
+  position: relative;
+  padding-left: 26px;
+  color: var(--token-e4c01179-4e7b-45a8-915a-d5bcd5f31dc2, #333);
+  font: 400 15px/1.45 'DM Sans', sans-serif;
+}
+
+.work-card__highlights li::before {
+  content: '';
+  position: absolute;
+  top: 0.35em;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: var(--token-b57a4573-ef01-446f-89ba-6fc5461bb54f, #bdee63)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.2 2.2 4.8-4.8' fill='none' stroke='%23111' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+    center / 16px no-repeat;
+}
+
+.work-card__stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.work-card__stack li {
+  padding: 4px 10px;
+  border: 1px solid var(--token-8ac823af-7d80-4133-952a-528a09c81339, #ededed);
+  border-radius: 100px;
+  color: var(--token-773240fd-3518-4816-8026-d74555f02613, #6c7179);
+  font: 500 12px/1.4 'DM Sans', sans-serif;
+  letter-spacing: 0.01em;
+}
+
+.work-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+}
+
+.work-card__live {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 44px;
+  color: var(--token-fcdd5164-bf55-48ca-a517-fc569e2d93cc, #111);
+  font: 500 15px/1 'DM Sans', sans-serif;
+  text-decoration: underline;
+  text-decoration-color: rgba(17, 17, 17, 0.25);
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.work-card__live:hover {
+  text-decoration-color: currentColor;
+}
+
+/* Desktop: balanced 50/50 split, vertically centred, bigger type. */
+@media (min-width: 1200px) {
+  .framer-O5jti.framer-v-5wbq63 .framer-ez6tx1 {
+    width: 50%;
+    justify-content: center;
+    padding: 56px 40px 56px 56px;
+  }
+
+  .framer-O5jti.framer-v-5wbq63 .framer-1run6bl {
+    max-width: 520px;
+    gap: 28px;
+  }
+
+  .framer-O5jti.framer-v-5wbq63 .framer-19wgdpu .framer-text {
+    --framer-font-size: 44px;
+    --framer-letter-spacing: -0.03em;
+    --framer-line-height: 1.05em;
+  }
+
+  .framer-O5jti.framer-v-5wbq63 .framer-11eb35q .framer-text {
+    --framer-font-size: 18px;
+    --framer-line-height: 1.5em;
+  }
+
+  .work-card__highlights li {
+    font-size: 16px;
+  }
+}
+
+/* Tablet */
+@media (min-width: 810px) and (max-width: 1199.98px) {
+  .framer-O5jti.framer-v-1clcsgm .framer-ez6tx1 {
+    justify-content: center;
+  }
+
+  .framer-O5jti.framer-v-1clcsgm .framer-19wgdpu .framer-text {
+    --framer-font-size: 34px;
+    --framer-letter-spacing: -0.02em;
+    --framer-line-height: 1.1em;
+  }
+
+  .framer-O5jti.framer-v-1clcsgm .framer-11eb35q .framer-text {
+    --framer-font-size: 16px;
+    --framer-line-height: 1.5em;
+  }
+}
+
+/* Phone */
+@media (max-width: 809.98px) {
+  .framer-O5jti.framer-v-1agh7xt .framer-19wgdpu .framer-text {
+    --framer-font-size: 30px;
+    --framer-letter-spacing: -0.02em;
+    --framer-line-height: 1.1em;
+  }
+
+  .work-card__highlights li {
+    font-size: 15px;
+  }
+}
+
+/* Featured Projects intro over the background image: readable lede size. */
+.framer-pNPRd .framer-fs7eln .framer-text {
+  --framer-font-size: 18px;
+  --framer-line-height: 1.5em;
+}

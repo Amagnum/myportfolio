@@ -377,6 +377,29 @@
   }
 }
 
+.github-activity__footer > span {
+  min-width: 0;
+}
+
+.github-activity__handle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 420px) {
+  .github-activity__footer {
+    flex-wrap: wrap;
+    row-gap: 8px;
+    column-gap: 12px;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+  }
+
+  .github-activity__handle {
+    max-width: 100%;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .summit-gallery__track {
     animation: none;
@@ -385,5 +408,56 @@
   .github-activity__cell.level-2,
   .github-activity__cell.level-3 {
     animation: none;
+  }
+}
+
+/* "Impact, measured" card: a 2×2 grid of headline metrics fills the card. */
+.impact-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: auto 0 0;
+  padding: 24px 28px 0;
+}
+
+.impact-metric {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  gap: 6px;
+  min-width: 0;
+  padding: 16px;
+  border-radius: 20px;
+  background: #fff;
+}
+
+.impact-metric:first-child {
+  background: #111;
+}
+
+.impact-metric dd {
+  margin: 0;
+  color: #111;
+  font: 500 clamp(22px, 2vw, 28px)/1.05 "DM Sans", sans-serif;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+}
+
+.impact-metric dt {
+  color: #6c7179;
+  font: 400 13px/1.35 "DM Sans", sans-serif;
+}
+
+.impact-metric:first-child dd {
+  color: #bdee63;
+}
+
+.impact-metric:first-child dt {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 809.98px) {
+  .impact-metrics {
+    padding: 24px 20px 0;
   }
 }

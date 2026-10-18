@@ -1,12 +1,9 @@
 'use client';
 
 import Image from 'next/image';
+import { pages } from '../../content/site';
 
-const summitImages = [
-  '/images/india-ai-summit-stage.webp',
-  '/images/india-ai-summit-exhibition.webp',
-  '/images/india-ai-summit-demo.webp',
-];
+const { heading, description, summit, github, testimonials } = pages.home.backedByWork;
 
 const activityPattern = [
   0, 1, 0, 2, 1, 0, 0, 1, 2, 1, 0, 1, 3, 2, 1, 0, 1, 2,
@@ -27,17 +24,17 @@ function SummitGalleryImage({ src, alt = '' }) {
 }
 
 function SummitGallery() {
-  const sequence = summitImages.map((src, index) => (
-    <SummitGalleryImage key={`${src}-${index}`} src={src} alt="India AI Impact Summit" />
-  ));
-
   return (
     <div className="summit-gallery" aria-label="India AI Impact Summit highlights">
       <div className="summit-gallery__track">
-        <div className="summit-gallery__sequence">{sequence}</div>
+        <div className="summit-gallery__sequence">
+          {summit.images.map((image, index) => (
+            <SummitGalleryImage key={`${image.src}-${index}`} src={image.src} alt={image.alt} />
+          ))}
+        </div>
         <div className="summit-gallery__sequence" aria-hidden="true">
-          {summitImages.map((src, index) => (
-            <SummitGalleryImage key={`${src}-duplicate-${index}`} src={src} />
+          {summit.images.map((image, index) => (
+            <SummitGalleryImage key={`${image.src}-duplicate-${index}`} src={image.src} />
           ))}
         </div>
       </div>
@@ -49,11 +46,11 @@ function SummitCard() {
   return (
     <article className="backed-card summit-card">
       <div className="backed-card__topline">
-        <img src="/images/rsenl transparent logo.svg" alt="RSENL AI Labs" />
+        <img src={summit.logo.src} alt={summit.logo.alt} />
       </div>
       <div className="backed-card__copy">
-        <h3>Represented RSENL AI Labs at the India AI Impact Summit 2026.</h3>
-        <p>A snapshot of the ideas, people, and emerging AI experiences that shaped the summit.</p>
+        <h3>{summit.title}</h3>
+        <p>{summit.description}</p>
       </div>
       <SummitGallery />
     </article>
@@ -64,16 +61,16 @@ function GithubActivityCard() {
   return (
     <article className="backed-card github-card">
       <div className="backed-card__topline">
-        <img className="github-card__logo" src="/images/tools/git-github.svg" alt="GitHub" />
+        <img className="github-card__logo" src={github.icon.src} alt={github.icon.alt} />
       </div>
       <div className="backed-card__copy">
-        <h3>Top contributor</h3>
-        <p>Contributing to the Banana Shake Chrome extension open-source project and RSENL AI LABS projects on GitHub.</p>
+        <h3>{github.title}</h3>
+        <p>{github.description}</p>
       </div>
       <div className="github-activity" aria-label="GitHub activity summary">
         <div className="github-activity__header">
-          <span>Activity</span>
-          <span className="github-activity__status"><i />Active</span>
+          <span>{github.activityLabel}</span>
+          <span className="github-activity__status"><i />{github.statusLabel}</span>
         </div>
         <div className="github-activity__grid" aria-hidden="true">
           {activityPattern.map((level, index) => (
@@ -81,8 +78,8 @@ function GithubActivityCard() {
           ))}
         </div>
         <div className="github-activity__footer">
-          <span>18 PUBLIC REPOS</span>
-          <span>GITHUB / NOO<strong>BSOURABH</strong></span>
+          <span className="github-activity__repos">{github.reposLabel}</span>
+          <span className="github-activity__handle">{github.handleLabel}</span>
         </div>
       </div>
     </article>
@@ -94,29 +91,47 @@ function TestimonialCard() {
     <article className="backed-card testimonial-card">
       <div className="backed-card__topline">
         <div className="testimonial-card__mark" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="#111" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z" />
-          </svg>
+          {testimonials.quoted ? (
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#111" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z" />
+            </svg>
+          ) : (
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 17l6-6 4 4 8-8" />
+              <path d="M14 7h7v7" />
+            </svg>
+          )}
         </div>
       </div>
       <div className="backed-card__copy">
-        <h3>Trusted by growing teams</h3>
-        <p>Worked with startups and teams to design and build React &amp; Next.js apps that support real business goals.</p>
+        <h3>{testimonials.title}</h3>
+        <p>{testimonials.description}</p>
       </div>
-      <div className="testimonial-stack">
-        <blockquote
-          className="testimonial-bubble testimonial-bubble--dark"
-          title="Working with Sourabh was smooth from start to finish. He understood our goals quickly and delivered a frontend that feels clear, modern, and easy to manage."
-        >
-          <p>“Working with Sourabh was smooth from start to finish. He understood our goals quickly and delivered a frontend that feels clear, modern, and easy to manage.”</p>
-        </blockquote>
-        <blockquote
-          className="testimonial-bubble testimonial-bubble--light"
-          title="Sourabh’s attention to detail really stood out. The frontend he built not only looks great, but also performs well and is easy for our team to update."
-        >
-          <p>“Sourabh’s attention to detail really stood out. The frontend he built not only looks great, but also performs well and is easy for our team to update.”</p>
-        </blockquote>
-      </div>
+      {!testimonials.quoted && testimonials.metrics?.length > 0 ? (
+        <dl className="impact-metrics">
+          {testimonials.metrics.map((metric) => (
+            <div key={metric.label} className="impact-metric">
+              <dt>{metric.label}</dt>
+              <dd>{metric.value}</dd>
+            </div>
+          ))}
+        </dl>
+      ) : (
+        <div className="testimonial-stack">
+          {testimonials.quotes.map((quote, index) => {
+            const Bubble = testimonials.quoted ? 'blockquote' : 'div';
+            return (
+              <Bubble
+                key={index}
+                className={`testimonial-bubble testimonial-bubble--${index % 2 === 0 ? 'dark' : 'light'}`}
+                title={quote}
+              >
+                <p>{testimonials.quoted ? `“${quote}”` : quote}</p>
+              </Bubble>
+            );
+          })}
+        </div>
+      )}
     </article>
   );
 }
@@ -126,8 +141,8 @@ export default function BackedByWorkSection() {
     <section className="backed-by-work-section" aria-labelledby="backed-by-work-title">
       <div className="backed-by-work-section__inner">
         <div className="backed-by-work-section__headline">
-          <h2 id="backed-by-work-title">Backed by real work.</h2>
-          <p>A few highlights that reflect the quality, trust, and results behind my work.</p>
+          <h2 id="backed-by-work-title">{heading}</h2>
+          <p>{description}</p>
         </div>
         <div className="backed-by-work-grid">
           <SummitCard />

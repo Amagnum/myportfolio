@@ -121,11 +121,12 @@
   border-top: 1px solid #ededed;
 }
 
-.about-experience-entry[data-about-experience="rsenl"] {
+.about-experience-entry[data-about-experience="first"] {
   border-top: 0;
 }
 
-.about-experience-entry p {
+.about-experience-entry p,
+.about-experience-entry h3 {
   margin: 0;
 }
 
@@ -212,16 +213,4 @@
   .about-experience-entry__college-break {
     display: block;
   }
-}
-
-/* Show the About hero background portrait at 80% of its previous scale. */
-.framer-18f6q1j .framer-1ewvsn3 [data-framer-background-image-wrapper] img {
-  position: absolute;
-  top: 10%;
-  left: 10%;
-  width: 80% !important;
-  height: 80% !important;
-  object-fit: contain !important;
-  transform: scale(1.5);
-  transform-origin: center;
 }

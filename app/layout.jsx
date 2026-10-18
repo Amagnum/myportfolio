@@ -1,63 +1,89 @@
-import Script from 'next/script';
 import './globals.css';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import SvgTemplates from '../components/SvgTemplates';
 import ScrollAnimations from '../components/ScrollAnimations';
 import ScrollToTop from '../components/ScrollToTop';
+import JsonLd from '../components/JsonLd';
+import { siteConfig, person } from '../content/site';
+import { personJsonLd } from '../lib/seo';
 
-const siteTitle = 'Sourabh Chouhan — Frontend Developer';
-const siteDescription =
-  'Sourabh Chouhan - Frontend Developer portfolio showcasing responsive web apps, landing pages, and AI projects.';
-const faviconImage = '/images/mascot%20Background%20Removed.png';
-const shareImage = faviconImage;
-
-function getMetadataBase() {
-  const url =
-    process.env.NEXT_PUBLIC_SITE_URL ??
-    process.env.URL ??
-    'http://localhost:3000';
-  return new URL(url);
-}
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: siteConfig.themeColor,
+};
 
 export const metadata = {
-  metadataBase: getMetadataBase(),
-  title: siteTitle,
-  description: siteDescription,
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: siteConfig.defaultTitle,
+    template: siteConfig.titleTemplate,
+  },
+  description: siteConfig.description,
+  applicationName: siteConfig.name,
+  keywords: siteConfig.keywords,
+  authors: [{ name: person.name, url: siteConfig.url }],
+  creator: person.name,
+  publisher: person.name,
+  alternates: {
+    canonical: '/',
+    types: { 'application/rss+xml': [{ url: '/blog/rss.xml', title: `${siteConfig.name} — Blog` }] },
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   icons: {
-    icon: [{ url: faviconImage, type: 'image/png' }],
-    shortcut: faviconImage,
-    apple: faviconImage,
+    icon: [{ url: siteConfig.favicon, type: 'image/png' }],
+    shortcut: siteConfig.favicon,
+    apple: '/apple-touch-icon.png',
   },
   manifest: '/site.webmanifest',
   appleWebApp: {
-    title: 'Sourabh Chouhan',
+    title: siteConfig.shortName,
   },
   openGraph: {
-    title: siteTitle,
-    description: siteDescription,
     type: 'website',
-    images: [
-      {
-        url: shareImage,
-        width: 1254,
-        height: 1254,
-        alt: 'Sourabh Chouhan portfolio mascot',
-      },
-    ],
+    locale: siteConfig.locale,
+    url: '/',
+    title: siteConfig.defaultTitle,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+    ...(siteConfig.ogImage && { images: [siteConfig.ogImage] }),
   },
   twitter: {
-    card: 'summary',
-    title: siteTitle,
-    description: siteDescription,
-    images: [shareImage],
+    card: 'summary_large_image',
+    title: siteConfig.defaultTitle,
+    description: siteConfig.description,
   },
 };
+
+const siteJsonLd = [
+  personJsonLd,
+  {
+    '@type': 'WebSite',
+    '@id': `${siteConfig.url}/#website`,
+    url: siteConfig.url,
+    name: siteConfig.name,
+    description: siteConfig.description,
+    publisher: { '@id': `${siteConfig.url}/#person` },
+    inLanguage: 'en',
+  },
+];
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
+        <JsonLd data={siteJsonLd} />
         <div id="main">
           <div className="framer-3wnNZ framer-1u2jidb" data-layout-template="true" style={{ minHeight: '100vh', width: 'auto' }}>
             <Navbar />
@@ -68,13 +94,6 @@ export default function RootLayout({ children }) {
         <ScrollToTop />
         <ScrollAnimations />
         <SvgTemplates />
-        <Script
-          id="about-enhancing"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{
-            __html: "if (window.location.pathname.startsWith('/about')) document.documentElement.dataset.aboutEnhancing = 'true';",
-          }}
-        />
       </body>
     </html>
   );

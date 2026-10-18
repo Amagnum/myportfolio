@@ -181,6 +181,14 @@
   }
 }
 
+/* Footer (phone variant): Framer's 2x2 link grid used equal-height rows, which
+   leaves a large empty band under "Focus Areas" now that the Pages column is
+   longer. Size rows to their content instead. */
+.framer-14ily4e-container .framer-1sCNJ.framer-v-h9v3jn .framer-19z9yo3 {
+  grid-template-rows: none;
+  grid-auto-rows: auto;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .framer-0gSxu.framer-v-vramua.framer-gama31,
   .framer-0gSxu.framer-v-vramua.framer-gama31 .framer-3azvt {

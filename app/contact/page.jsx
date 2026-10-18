@@ -1,9 +1,8 @@
 import ContactContent from '../../components/contact/ContactContent';
+import { pages } from '../../content/site';
+import { buildMetadata } from '../../lib/seo';
 
-export const metadata = {
-  title: 'Contact — Sourabh Chouhan - Frontend Developer',
-  description: 'Get in touch with Sourabh Chouhan for frontend development, responsive web apps, and modern landing pages.',
-};
+export const metadata = buildMetadata({ ...pages.contact.seo, path: '/contact' });
 
 export default function ContactPage() {
   return <ContactContent />;

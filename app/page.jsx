@@ -3,11 +3,10 @@ import AboutBriefSection from '../components/home/AboutBriefSection';
 import BackedByWorkSection from '../components/home/BackedByWorkSection';
 import SelectedWorkSection from '../components/home/SelectedWorkSection';
 import ServicesSection from '../components/home/ServicesSection';
+import { pages } from '../content/site';
+import { buildMetadata } from '../lib/seo';
 
-export const metadata = {
-  title: 'Sourabh Chouhan — Frontend Developer',
-  description: 'Sourabh Chouhan - Frontend Developer portfolio showcasing responsive web apps, landing pages, and AI projects.',
-};
+export const metadata = buildMetadata({ ...pages.home.seo, path: '/' });
 
 export default function HomePage() {
   return (

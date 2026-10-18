@@ -7,6 +7,9 @@
 @import './styles/about-enhancements.css';
 @import './styles/hero-layout.css';
 @import './styles/navbar-enhancements.css';
+@import './styles/blog.css';
+@import './styles/photography.css';
+@import './styles/featured-work.css';
 
 html,
 body {

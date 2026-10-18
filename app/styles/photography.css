@@ -1,0 +1,255 @@
+/* Photography gallery + photo story pages. Builds on the .blog-shell tokens in blog.css. */
+
+.photo-eyebrow {
+  margin: 0;
+  color: var(--blog-muted);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Masonry gallery: CSS columns keep each photo at its natural aspect ratio. */
+.photo-grid {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  columns: 1;
+  column-gap: 16px;
+}
+
+.photo-grid__item {
+  margin: 0 0 16px;
+  break-inside: avoid;
+}
+
+.photo-tile {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 20px;
+  background: var(--blog-surface);
+}
+
+.photo-tile__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.photo-tile__caption {
+  position: absolute;
+  inset: auto 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 48px 18px 16px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0));
+  color: #fff;
+}
+
+.photo-tile__title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.photo-tile__meta {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 14px;
+}
+
+@media (hover: hover) {
+  .photo-tile__caption {
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .photo-tile:hover .photo-tile__caption,
+  .photo-tile:focus-visible .photo-tile__caption {
+    opacity: 1;
+    transform: none;
+  }
+
+  .photo-tile:hover .photo-tile__image {
+    transform: scale(1.03);
+  }
+}
+
+/* Story page */
+.photo-story {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.photo-story__figure {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 20px;
+  background: var(--blog-surface);
+}
+
+/* Full width, capped at 82vh; tall photos are letterboxed inside the figure. */
+.photo-story__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 82vh;
+  object-fit: contain;
+}
+
+.photo-story__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 28px;
+  width: 100%;
+  max-width: 760px;
+  margin: 8px auto 0;
+}
+
+.photo-story__header {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.photo-story__header .blog-post__title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.photo-story__text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.photo-details {
+  padding: 20px 24px;
+  border-radius: 20px;
+  background: var(--blog-surface);
+}
+
+.photo-details dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 20px;
+  margin: 0;
+}
+
+.photo-details dt {
+  color: var(--blog-muted);
+  font-size: 13px;
+}
+
+.photo-details dd {
+  margin: 2px 0 0;
+  font-size: 15px;
+  overflow-wrap: anywhere;
+}
+
+.photo-tags {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.photo-nav {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+  width: 100%;
+  max-width: 760px;
+  margin: 40px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--blog-border);
+}
+
+.photo-nav__link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 72px;
+  padding: 10px;
+  border-radius: 16px;
+  background: var(--blog-surface);
+  transition: background-color 0.2s ease;
+}
+
+.photo-nav__link:hover {
+  background: #efefef;
+}
+
+.photo-nav__link--next {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.photo-nav__thumb {
+  position: relative;
+  flex: none;
+  width: 64px;
+  height: 64px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.photo-nav__text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.photo-nav__label {
+  color: var(--blog-muted);
+  font-size: 13px;
+}
+
+.photo-nav__title {
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (min-width: 810px) {
+  .photo-grid {
+    columns: 2;
+    column-gap: 20px;
+  }
+
+  .photo-grid__item {
+    margin-bottom: 20px;
+  }
+
+  .photo-details dl {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .photo-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1200px) {
+  .photo-grid {
+    columns: 3;
+  }
+
+  .photo-story__figure {
+    border-radius: 28px;
+  }
+}

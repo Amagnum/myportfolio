@@ -4,11 +4,9 @@ import { useLayoutEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-const intro = 'I build modern frontend experiences that are easy to use, fast to load, and simple to maintain.'
-const highlightedLines = [
-  'The goal is simple: turn ideas into clear, accessible interfaces that',
-  'feel great on every screen.',
-]
+import { pages } from '../content/site'
+
+const { intro, highlightedLines } = pages.home.aboutBrief
 
 function Words({ children }) {
   return children.split(/(\s+)/).map((part, index) => (

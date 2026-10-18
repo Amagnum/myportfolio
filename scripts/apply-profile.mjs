@@ -8,14 +8,14 @@ const profilePath = path.join(publicDir, 'profile.json')
 const profileData = JSON.parse(fs.readFileSync(profilePath, 'utf8'))
 
 const pageTitles = {
-  'index.html': 'Sourabh Chouhan — Frontend Developer',
-  'about.html': 'About — Sourabh Chouhan - Frontend Developer',
-  'contact.html': 'Contact — Sourabh Chouhan - Frontend Developer',
-  'work.html': 'Work — Sourabh Chouhan - Frontend Developer',
-  'work--atlas-finance.html': 'Sprout — Sourabh Chouhan - Frontend Developer',
-  'work--brightly-studio.html': 'Moji — Sourabh Chouhan - Frontend Developer',
-  'work--luma-workspace.html': 'AI Films — Sourabh Chouhan - Frontend Developer',
-  'work--nova-health.html': 'Banana Shake — Sourabh Chouhan - Frontend Developer',
+  'index.html': 'Adarsh Baghel — Software Engineer & AI Builder',
+  'about.html': 'About — Adarsh Baghel - Software Engineer & AI Builder',
+  'contact.html': 'Contact — Adarsh Baghel - Software Engineer & AI Builder',
+  'work.html': 'Work — Adarsh Baghel - Software Engineer & AI Builder',
+  'work--atlas-finance.html': 'Sprout — Adarsh Baghel - Software Engineer & AI Builder',
+  'work--brightly-studio.html': 'Moji — Adarsh Baghel - Software Engineer & AI Builder',
+  'work--luma-workspace.html': 'AI Films — Adarsh Baghel - Software Engineer & AI Builder',
+  'work--nova-health.html': 'Banana Shake — Adarsh Baghel - Software Engineer & AI Builder',
 }
 
 const htmlFiles = Object.keys(pageTitles)
@@ -94,7 +94,7 @@ for (const file of htmlFiles) {
   $('meta[name="description"], meta[property="og:description"], meta[name="twitter:description"]').each((_, el) => {
     const content = $(el).attr('content')
     if (content && (content.includes('Nadina') || content.includes('portfolio template with a calm aesthetic'))) {
-      $(el).attr('content', 'Sourabh Chouhan - Frontend Developer portfolio showcasing responsive web apps, landing pages, and AI projects.')
+      $(el).attr('content', 'Adarsh Baghel - Full Stack & AI Systems Engineer portfolio showcasing scalable backend architectures, multi-agent frameworks, and high-performance applications.')
     }
   })
 
